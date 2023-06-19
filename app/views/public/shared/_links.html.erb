@@ -1,8 +1,10 @@
 <%- if controller_name != 'sessions' %>
-  <%= link_to "Log in", new_session_path(resource_name) %><br />
+  <span class="bg-light">既に登録済みの方</span><br />
+  <%= link_to "こちら ", new_session_path(resource_name), class:"ml-5 mt-1"%>からログインして下さい<br />
 <% end %>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to "Sign up", new_registration_path(resource_name) %><br />
+  <span class="bg-light">会員登録がお済みでない方</span><br />
+  <%= link_to "こちら　", new_registration_path(resource_name), class:"ml-5 mt-1" %>から新規登録を行って下さい<br />
 <% end %>
 
