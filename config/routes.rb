@@ -19,8 +19,8 @@ Rails.application.routes.draw do
   sessions: 'public/sessions'
 }
 
-    root to: "homes#top"
-    get "/about" => "homes#about"
+    root to: "public/homes#top"
+    get "/about" => "public/homes#about"
     resources :items, only: [:index, :show]
     resource :customers, only: [:show, :update] do
       get 'information/edit' => "customers#edit", on: :collection
@@ -35,6 +35,6 @@ Rails.application.routes.draw do
       get 'completion', on: :collection
     end
     resources :deliveries, only: [:index, :edit, :create, :update, :destroy]
-    
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
