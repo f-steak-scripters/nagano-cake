@@ -10,7 +10,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="m-2"style="border-style:solid; border-width:2px;">
+  <body>
     <% if admin_signed_in? %>
       <% if request.fullpath.include? "/admin" %>
         <header>
