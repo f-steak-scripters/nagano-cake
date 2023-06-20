@@ -16,7 +16,8 @@ Rails.application.routes.draw do
     resources :orders_details, only: [:update]
   end
 
-  root to: "public/homes#top"
+  scope module: 'public' do
+  root to: "homes#top"
   get "/about" => "public/homes#about"
   resources :items, only: [:index, :show]
   resource :customers, only: [:show, :update] do
@@ -32,6 +33,6 @@ Rails.application.routes.draw do
     get 'completion', on: :collection
   end
   resources :deliveries, only: [:index, :edit, :create, :update, :destroy]
-
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
