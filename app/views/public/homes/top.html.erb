@@ -1,21 +1,15 @@
-<div class="container-fluid">
-  <div class="row mt-5">
-    <!-- お店の紹介-->
-    <div class="mx-auto">
-      <%= image_tag "24234001_s", size: "800x540" %>
+<div class="container py-5">
+  <div class="row mt-5 font-weight-bold">
+    <div class="mx-auto bg-light" style="text-align: center; font-size:30px;">
+      ようこそ、ながのCAKEへ！</br>
+      このサイトは、ケーキ販売のECサイトになります。</br>
+      会員でない方も商品の閲覧はできますが、</br>
+      購入には会員登録が必要になります。
     </div>
-    <h3 class="mx-auto text-center">
-        ようこそ、ながのCAKEへ！</br>
-        このサイトは、ケーキ販売のECサイトになります。</br>
-        会員でない方も商品の閲覧はできますが、</br>
-        購入には会員登録が必要になります。
-    </h3>
   </div>
-  <!-- 新着商品の表示 -->
-  <!-- 最新4件のみ載せる-->
-  <!-- 商品を横並びで掲載 -->
+
   <div class="row my-5">
-    <h3 class="font-weight-bold">新着商品</h3>
+    <h2 class="font-weight-bold">新着商品</h2>
   </div>
     <% @items.each do |item|%>
     <div class="col-4">
@@ -31,9 +25,13 @@
     </div>
     <% end %>
 
-  <div class="mb-5">
-    <!-- 右端に寄せる-->
-    <%= link_to "全ての商品を見る >", items_path %>
+  <div>
+    <div class="text-right">
+      <%= link_to "全ての商品を見る >", items_path %>
+    </div>
   </div>
+  <div>
     <!-- ページネーション -->
+  </div>
 </div>
+
