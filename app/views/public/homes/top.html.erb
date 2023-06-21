@@ -1,18 +1,24 @@
-<div class="container">
-  <div class="row">
+<div class="container-fluid">
+  <div class="row mt-5">
     <!-- お店の紹介-->
-    <h3>ようこそ、ながのCAKEへ！</br>
+    <div class="mx-auto">
+      <%= image_tag "24234001_s", size: "800x540" %>
+    </div>
+    <h3 class="mx-auto text-center">
+        ようこそ、ながのCAKEへ！</br>
         このサイトは、ケーキ販売のECサイトになります。</br>
         会員でない方も商品の閲覧はできますが、</br>
         購入には会員登録が必要になります。
     </h3>
   </div>
   <!-- 新着商品の表示 -->
-  <div class="raw my-2">
+  <!-- 最新4件のみ載せる-->
+  <!-- 商品を横並びで掲載 -->
+  <div class="row my-5">
     <h3 class="font-weight-bold">新着商品</h3>
   </div>
     <% @items.each do |item|%>
-    <div class="col-sm-">
+    <div class="col-4">
       <div>
         <%= link_to item_path(item) do %>
           <p class="img-wrap"><%= image_tag item.get_image(100,80), class: "m-3"%></p>
@@ -25,7 +31,9 @@
     </div>
     <% end %>
 
-  <div>
+  <div class="mb-5">
+    <!-- 右端に寄せる-->
     <%= link_to "全ての商品を見る >", items_path %>
   </div>
+    <!-- ページネーション -->
 </div>
