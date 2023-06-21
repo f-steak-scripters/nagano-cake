@@ -1,1 +1,71 @@
-orders#new
+<h4><span class="bg-light">注文情報入力</span></h4>
+
+<h6><span class="bg-light">支払い方法</span></h6>
+
+<%= form_with(model: @order, url: confirm_orders_path,method: :post) do |f| %>
+  <div class="radio-inline">
+    <%= f.radio_button :method_of_payment, "card" %>
+    <%= f.label :method_of_payment,"クレジットカード" %>
+  </div>
+  <div class="radio-inline">
+    <%= f.radio_button :method_of_payment, "bank" %>
+    <%= f.label :method_of_payment, "銀行振込" %>
+  </div>
+
+<h6><span class="bg-light">お届け先</span></h6>
+  <div class="radio-inline">
+    <%= f.radio_button :address_type,1 %>
+    <%= f.label :address_type,"自身の住所" %>
+  </div>
+
+  <div class="radio-inline">
+    <%= f.radio_button :address_type, 2 %>
+    <%= f.label :address_type, "登録済み住所" %>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-lg-4">
+      <%= f.label :address_type, "登録済み住所" %>
+    </div>
+    <div class="col-lg-7">
+      <%= f.collection_select :customer_id, @deliveries, :id, :full_deliveries, {}, { class: "form-control form-control-col-lg-8" } %>
+    </div>
+  </div>
+
+  <div class="radio-inline">
+    <%= f.radio_button :address_type, 3 %>
+    <%= f.label :address_type, "新しい住所" %>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-lg-4">
+      <%= f.label :post_code, "郵便番号(ハイフンなし)" %>
+    </div>
+    <div class="col-lg-4">
+      <%= f.text_field :post_code, class: "form-control", placeholder: '0000000' %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-lg-4">
+      <%= f.label :address, "住所" %>
+    </div>
+    <div class="col-lg-8">
+      <%= f.text_field :address, class: "form-control col-lg-8", placeholder: '東京都渋谷区神園町0-0' %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-lg-4">
+      <%= f.label :name, "宛名" %>
+    </div>
+    <div class="col-lg-4">
+      <%= f.text_field :name, class: "form-control", placeholder: '令和道子' %>
+      </div>
+  </div>
+
+  <div class="form-group">
+  <%= f.submit '確認画面に進む', class: 'btn btn-success' %>
+  </div>
+
+<% end %>
