@@ -1,14 +1,23 @@
-<div class="container m-5">
-<h4>商品一覧</h4><p>(全<%= @items.count %>件)</p>
-<% @items.each do |item| %>
-<div class="row mt-5">
-  <%= link_to item_path(item.id) do %>
-   <div class="col-">
-      <%= image_tag item.get_image(180, 120) %>
-      <p><%= item.name %></p>
-      <p><%= item.price %></p>
-   </div>
-  <% end %>
-</div>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 px-sm-0">
+      <h2 class="font-weight-bold">商品一覧(全<%= @items.count %>件)</h2>
+    </div>
+  </div>
+
+<div class="row">
+    <% @items.each do |item|%>
+    <div class="col-sm-">
+      <div>
+        <%= link_to item_path(item) do %>
+          <p class="img-wrap"><%= image_tag item.get_image(100,80), class: "m-3"%></p>
+        <% end %>
+        <div class="card-body">
+          <p><%= item.name %></p>
+          <p>¥<%= item.price %></p>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
 </div>
