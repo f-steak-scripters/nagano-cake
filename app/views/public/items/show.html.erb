@@ -1,1 +1,21 @@
-items#show
+<div class="container">
+    <div class="row pt-5 pb-5">
+      <div class="pr-5">
+        <%= image_tag @item.get_image(300, 300) %>
+      </div>
+    
+      <div class="pl-5">
+        <h1 class="font-weight-bold pb-2"><%= @item.name %></h1>
+        <h5 class="pb-5"><%= @item.description %></h5>
+        <h3 class="pb-3">¥<%= @item.price %>(税込)</h3>
+      
+        <% if @item.is_sales == true %>
+          <%= form_with model: @cart_item, url: cart_item_path do |f| %>
+            <%= f.hidden_field:@item_id, :value => @item.id %>
+            <%= f.select :quantity, *[1..10], {include_blank: '個数選択'} %>
+            <%= f.submit "カートに入れる", class: "btn btn-success ml-5 py-2 px-3" %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+</div>
