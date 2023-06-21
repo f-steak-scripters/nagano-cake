@@ -9,4 +9,5 @@ class Customer < ApplicationRecord
   end
   
   has_many :deliveries, dependent: :destroy
+  has_many :order
 end
