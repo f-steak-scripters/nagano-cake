@@ -1,7 +1,7 @@
 <div class="p-5 mx-5">
 
   <p style="background-color:#DDDDDD;" class="text-center col-auto p-2 d-inline-block">
-    <%= @customer.last_name%><%= @customer.first_name %>さんの会員詳細
+    <%= @customer.last_name%><%= @customer.first_name %>さんの会員情報編集
   </p>
   <br>
   <%= form_with model: @customer, url: admin_customer_path(@customer.id), method: :patch do |f| %>
@@ -16,7 +16,7 @@
       </tr>
       <tr>
         <td>フリガナ</td>
-        <td><%=f.text_field :last_name_katakana, :placeholder => "レイワ"%>  <%=f.text_field :first_name_katakana, :placeholder => "ミチコ"%></td>
+        <td><%=f.text_field :last_name_katakana, :placeholder => "レイワ"%>　<%=f.text_field :first_name_katakana, :placeholder => "ミチコ"%></td>
       </tr>
       <tr>
         <td>郵便番号</td>
