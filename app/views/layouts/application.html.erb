@@ -48,12 +48,70 @@
           </nav>
         </header>
       <% else %>
-        // customer側のheaderを返す
+        <!-- customer側のheaderを返す-->
       <% end %>
     <% elsif customer_signed_in? %>
-      // customerログイン状態の際に、表示したいheaderのメニューを記載
+      <!--customerログイン状態の際に、表示したいheaderのメニューを記載 -->
+      <header>
+        <nav class="navbar navbar-expand-lg">
+          <div class="container-fluid">
+            <a class="m-5 px-5 py-1" href="/" style="border-style:solid; border-width:2px; font-size: 24px; color: black;">
+              <strong>LOGO</strong>
+            </a>
+
+            <div>
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item ml-3" style="border-style:solid; border-width:2px;">
+                  <%= link_to "マイページ", customer_path, class: 'nav-link', style: 'color: black;' %>
+                </li>
+                
+                <li class="nav-item ml-3" style="border-style:solid; border-width:2px;">
+                  <%= link_to "商品一覧", items_path, class: 'nav-link', style: 'color: black;'%>
+                </li>
+                  
+                <li class="nav-item ml-3" style="border-style:solid; border-width:2px;">
+                  <%= link_to "カート", cart_items_path, class: 'nav-link', style: 'color: black;'%>
+                </li>
+                  
+                <li class="nav-item ml-3" style="border-style:solid; border-width:2px;">
+                  <%= link_to "ログアウト", '/',  method: :delete, class: 'nav-link', style: 'color: black;' %>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
     <% else %>
-      // adminでもcustomerでもログインしていない時に表示するheaderのメニューを記載
+      <!--adminでもcustomerでもログインしていない時に表示するheaderのメニューを記載-->
+      <header>
+        <nav class="navbar navbar-expand-lg">
+          <div class="container-fluid">
+            <a class="m-5 px-5 py-1" href="/" style="border-style:solid; border-width:2px; font-size: 24px; color: black;">
+              <strong>LOGO</strong>
+            </a>
+
+            <div>
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item ml-3" style="border-style:solid; border-width:2px;">
+                  <%= link_to "About", about_path, class: 'nav-link', style: 'color: black;'%>
+                </li>
+                
+                <li class="nav-item ml-3" style="border-style:solid; border-width:2px;">
+                  <%= link_to "商品一覧", items_path, class: 'nav-link', style: 'color: black;'%>
+                </li>
+                
+                <li class="nav-item ml-3" style="border-style:solid; border-width:2px;">
+                  <%= link_to "新規登録", new_customer_registration_path, class: 'nav-link', style: 'color: black;'%>
+                </li>
+                
+                <li class="nav-item ml-3" style="border-style:solid; border-width:2px;">
+                  <%= link_to "ログイン", new_customer_session_path, class: 'nav-link', style: 'color: black;'%>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
     <% end %>
   </body>
   <main style="border-top: 2px solid black; border-bottom: 2px solid black;">
