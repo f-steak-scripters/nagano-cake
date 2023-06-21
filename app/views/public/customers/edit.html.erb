@@ -3,100 +3,38 @@
   <p style="width: 130px; background-color:#DDDDDD;" class="text-center offset-md-1">会員情報登録</p>
   <br>
   <%= form_with model: @customer, url: '/customer', method: :patch do |f| %>
-
-
-    <div class="form-field row">
-      <div class="col-lg-3">
-        <p>名前</p>
-      </div>
-
-      <div class="col-lg-1 text-right">
-        <%=f.label :last_name,"(姓)" %>
-      </div>
-      <div class="col-lg-3">
-        <%=f.text_field :last_name, :placeholder => "令和"%>
-      </div>
-
-      <div class="col-lg-1 text-right">
-        <%=f.label :last_name,"(名)" %>
-      </div>
-      <div class="col-lg-3">
-        <%=f.text_field :first_name, :placeholder => "道子"%>
-      </div>
-    </div>
-
-    <div class="form-field row">
-      <div class="col-lg-3">
-        <p>フリガナ</p>
-      </div>
-
-      <div class="col-lg-1 text-right">
-        <%=f.label :last_name_katakana,"(セイ)" %>
-      </div>
-      <div class="col-lg-3">
-        <%=f.text_field :last_name_katakana, :placeholder => "レイワ"%>
-      </div>
-
-      <div class="col-lg-1">
-        <%=f.label :first_name_katakana,"(メイ)" %>
-      </div>
-      <div class="col-lg-3">
-        <%=f.text_field :first_name_katakana, :placeholder => "ミチコ"%>
-      </div>
-    </div>
-
-
-
-    <div class="form-field row">
-      <div class="col-lg-4">
-        <%=f.label :post_code,"郵便番号（ハイフンなし）" %>
-      </div>
-      <div class="col-lg-4">
-        <%=f.text_field :post_code, :placeholder => "0000000"%>
-      </div>
-      <div class="col-lg-4">
-      </div>
-    </div>
-
-    <div class="form-field row">
-      <div class="col-lg-4">
-        <%= f.label :住所 %>
-      </div>
-      <div class="col-lg-8">
-        <%= f.text_field :address,class:"col-lg-10", placeholder: "東京都渋谷区代々木神園町0-0" %>
-      </div>
-    </div>
-
-
-    <div class="form-field row">
-      <div class="col-lg-4">
-        <%= f.label :電話番号 %>
-      </div>
-      <div class="col-lg-4">
-        <%= f.text_field :telephone_number, pattern: "[0-9]{10}", placeholder: "0000000000" %>
-      </div>
-    </div>
-
-    <div class="form-field row">
-      <div class="col-lg-4">
-        <%= f.label :メールアドレス %>
-      </div>
-      <div class="col-lg-4">
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com"%>
-      </div>
-      <div class="col-lg-4">
-      </div>
-    </div>
-
-
-    <div class="row">
-      <div class="col-lg-4">
-      </div>
-      <div class="m-3">
-        <%= f.submit "編集内容を保存", class: "btn btn-success", style: 'width: 300px; margin-right: 50px;' %>
-        <%= link_to "退会する", '/customer/leave', class: "btn btn-danger" %>
-      </div>
-    </div>
+    <table height="350" class="my-2">
+      <tr>
+        <td>氏名</td>
+        <td><%=f.text_field :last_name, :placeholder => "令和"%>　<%=f.text_field :first_name, :placeholder => "道子"%></td>
+      </tr>
+      <tr>
+        <td>フリガナ</td>
+        <td><%=f.text_field :last_name_katakana, :placeholder => "レイワ"%>　<%=f.text_field :first_name_katakana, :placeholder => "ミチコ"%></td>
+      </tr>
+      <tr>
+        <td>郵便番号</td>
+        <td><%=f.text_field :post_code, :placeholder => "0000000"%></td>
+      </tr>
+      <tr>
+        <td>住所</td>
+        <td><%= f.text_field :address,class:"col-lg-10", placeholder: "東京都渋谷区代々木神園町0-0" %></td>
+      </tr>
+      <tr>
+        <td>電話番号</td>
+        <td><%= f.text_field :telephone_number, pattern: "[0-9]{10,11}", placeholder: "0000000000" %></td>
+      </tr>
+      <tr>
+        <td class="pr-5">メールアドレス</td>
+        <td><%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com"%></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <%= f.submit "編集内容を保存", class: "btn btn-success", style: 'width: 250px; margin-right: 50px;' %>
+          <%= link_to "退会する", '/customer/leave', class: "btn btn-danger ml-5" %>
+        </td>
+      </tr>
+    </table>
   <% end %>
-
 </div>
