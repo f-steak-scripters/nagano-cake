@@ -1,1 +1,37 @@
-customers#show
+<dir class="p-5">
+
+  <p style="width: 130px; background-color:#DDDDDD;" class="text-center offset-md-1">マイページ</p>
+  <br>
+
+  <p><strong>登録情報</strong>　<%= link_to "編集する",'/customer/information/edit',class: "btn btn-success btn-sm" %></p>
+
+  <table border="1" height="300">
+    <tr>
+      <td style="background-color:#DDDDDD;">氏名</td>
+      <td><%= @customer.last_name %>　<%= @customer.first_name %></td>
+    </tr>
+    <tr>
+      <td style="background-color:#DDDDDD;">カナ</td>
+      <td><%= @customer.last_name_katakana %>  <%= @customer.first_name_katakana %></td>
+    </tr>
+    <tr>
+      <td style="background-color:#DDDDDD;">郵便番号</td>
+      <td><%= @customer.post_code %></td>
+    </tr>
+    <tr>
+      <td style="background-color:#DDDDDD;">住所</td>
+      <td class="pr-5"><%= @customer.address %></td>
+    </tr>
+    <tr>
+      <td style="background-color:#DDDDDD;">電話番号</td>
+      <td><%= @customer.telephone_number %></td>
+    </tr>
+    <tr>
+      <td class="pr-5" style="background-color:#DDDDDD;">メールアドレス</td>
+      <td><%= @customer.email %></td>
+    </tr>
+  </table>
+  <br>
+  <p><strong>配送先　</strong>　<%= link_to "一覧を見る",'/deliverie',class: "btn btn-primary btn-sm py-0" %></p>
+  <p><strong>注文履歴</strong>　<%= link_to "一覧を見る",'/deliverie',class: "btn btn-primary btn-sm py-0" %></p>
+</dir>
