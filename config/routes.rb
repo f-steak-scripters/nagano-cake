@@ -17,10 +17,10 @@ Rails.application.routes.draw do
   end
 
   scope module: 'public' do
-  root to: "homes#top"
-  get "/about" => "public/homes#about"
-  resources :items, only: [:index, :show]
-  resource :customers, only: [:show, :update] do
+    root to: "homes#top"
+    get "/about" => "homes#about"
+    resources :items, only: [:index, :show]
+    resource :customer, only: [:show, :update] do
     get 'information/edit' => "customers#edit", on: :collection
     get 'leave', on: :collection
     patch 'withdrawal', on: :collection
@@ -32,7 +32,7 @@ Rails.application.routes.draw do
     post 'confirm', on: :collection
     get 'completion', on: :collection
   end
-  resources :deliveries, only: [:index, :edit, :create, :update, :destroy]
+    resources :deliveries, only: [:index, :edit, :create, :update, :destroy]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
