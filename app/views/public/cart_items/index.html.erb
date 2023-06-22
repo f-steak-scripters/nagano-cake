@@ -1,1 +1,48 @@
-cart_items#index
+<div class='container my-3'>
+  <div class='row'>
+    <div>
+      <h4 class="title ml-5 bg-light">ショッピングカート</h4>
+    </div>
+  </div>
+
+  <div class='row'>
+    <div class="mx-auto">
+      <% if @cart_items.present? %> <!-- カートアイテムが存在するかどうかの条件分岐-->
+        <%= link_to 'カートを空にする', destroy_all_cart_items_path, method: :delete, data: { confirm: 'カートを空にしますか?' }, class: "btn btn-danger float-right" %>
+        <table class="table table-bordered">
+          <tr>
+            <th class="table-light">商品名</th>
+            <th class="table-light">単価（税込）</th>
+            <th class="table-light">数量</th>
+            <th class="table-light">小計</th>
+            <th class="table-light"></th>
+          </tr>
+          <% @cart_items.each do |cart_item| %>
+            <tr>
+              <td>
+                <%= image_tag cart_item.item.image, width: "50" %>
+                <%= cart_item.item.name %>
+              </td>
+              <td><%= cart_item.item.add_tax_price.to_s(:delimited) %></td>
+              <td>
+                <%= form_for(cart_item, url: cart_item_path(cart_item), remote: true) do |f| %>
+                  <%= f.number_field :quantity, min: 1, class: 'form-control' %>
+                  <%= f.submit '変更', class: 'btn btn-sm btn-success' %>
+                <% end %>
+              </td>
+              <td><%= cart_item.subtotal.to_s(:delimited) %></td>
+              <td><%= link_to '削除', cart_item_path(cart_item), method: :delete, class: "btn btn-sm btn-danger" %></td>
+            </tr>
+          <% end %>
+        </table>
+        <table class="table table-bordered col-sm-4 float-right">
+          <th class="table-light col-sm-6">合計金額</th>
+          <td class="col-sm-6"><%= @cart_items.sum(&:subtotal).to_s(:delimited) %></td>
+        </table>
+      <% else %>
+        <p>カートは空です。</p>
+      <% end %>
+        <%= link_to '買い物を続ける', items_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>
