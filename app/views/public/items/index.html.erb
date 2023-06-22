@@ -5,17 +5,15 @@
     </div>
   </div>
 
-<div class="row">
+  <div class="row">
     <% @items.each do |item|%>
-    <div class="col">
+    <div class="col-sm-auto">
+      <%= link_to item_path(item) do %>
+        <p class="img-wrap"><%= image_tag item.image, width:200, heigth:140, class: "img-resize sized m-3"%></p>
+      <% end %>
       <div>
-        <%= link_to item_path(item) do %>
-          <p class="img-wrap"><%= image_tag item.get_image(100,80), class: "sized m-3"%></p>
-        <% end %>
-        <div class="card-body">
-          <p><%= item.name %></p>
-          <p>¥<%= item.price %></p>
-        </div>
+        <p><%= item.name %></p>
+        <p>¥<%= item.price %></p>
       </div>
     </div>
     <% end %>
