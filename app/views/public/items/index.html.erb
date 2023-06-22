@@ -1,18 +1,18 @@
 <div class="container">
   <div class="row mt-5">
-    <div class="col-sm-12 px-sm-0">
+    <div class="col-sm-12 px-sm-0 pb-4">
       <h2 class="font-weight-bold">商品一覧(全<%= @items.count %>件)</h2>
     </div>
   </div>
 
-  <div class="row">
+  <div class="row mx-auto">
     <% @items.each do |item|%>
-    <div class="col-sm-auto">
+    <div class="card col-sm-auto m-1 shadow-lg">
       <%= link_to item_path(item) do %>
-        <p class="img-wrap"><%= image_tag item.image, width:200, heigth:140, class: "img-resize sized m-3"%></p>
+        <p class="img-wrap"><%= image_tag item.image, width:200, heigth:140, class: "img-resize sized mt-3"%></p>
       <% end %>
       <div>
-        <p><%= item.name %></p>
+        <p style="font-size:20px;"><%= item.name %></p>
         <p>¥<%= item.add_tax_price %></p>
       </div>
     </div>
