@@ -61,15 +61,15 @@
                 <li class="nav-item ml-3" style="border-style:solid; border-width:2px;">
                   <%= link_to "マイページ", customer_path, class: 'nav-link', style: 'color: black;' %>
                 </li>
-                
+
                 <li class="nav-item ml-3" style="border-style:solid; border-width:2px;">
                   <%= link_to "商品一覧", items_path, class: 'nav-link', style: 'color: black;'%>
                 </li>
-                  
+
                 <li class="nav-item ml-3" style="border-style:solid; border-width:2px;">
                   <%= link_to "カート", cart_items_path, class: 'nav-link', style: 'color: black;'%>
                 </li>
-                  
+
                 <li class="nav-item ml-3" style="border-style:solid; border-width:2px;">
                   <%= link_to "ログアウト", '/',  method: :delete, class: 'nav-link', style: 'color: black;' %>
                 </li>
@@ -93,17 +93,17 @@
                 <li class="nav-item ml-3" style="border-style:solid; border-width:2px;">
                   <%= link_to "マイページ", customer_path, class: 'nav-link', style: 'color: black;' %>
                 </li>
-                
+
                 <li class="nav-item ml-3" style="border-style:solid; border-width:2px;">
                   <%= link_to "商品一覧", items_path, class: 'nav-link', style: 'color: black;'%>
                 </li>
-                  
+
                 <li class="nav-item ml-3" style="border-style:solid; border-width:2px;">
                   <%= link_to "カート", cart_items_path, class: 'nav-link', style: 'color: black;'%>
                 </li>
-                  
+
                 <li class="nav-item ml-3" style="border-style:solid; border-width:2px;">
-                  <%= link_to "ログアウト", '/',  method: :delete, class: 'nav-link', style: 'color: black;' %>
+                  <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'nav-link', style: 'color: black;' %>
                 </li>
               </ul>
             </div>
@@ -124,15 +124,15 @@
                 <li class="nav-item ml-3" style="border-style:solid; border-width:2px;">
                   <%= link_to "About", about_path, class: 'nav-link', style: 'color: black;'%>
                 </li>
-                
+
                 <li class="nav-item ml-3" style="border-style:solid; border-width:2px;">
                   <%= link_to "商品一覧", items_path, class: 'nav-link', style: 'color: black;'%>
                 </li>
-                
+
                 <li class="nav-item ml-3" style="border-style:solid; border-width:2px;">
                   <%= link_to "新規登録", new_customer_registration_path, class: 'nav-link', style: 'color: black;'%>
                 </li>
-                
+
                 <li class="nav-item ml-3" style="border-style:solid; border-width:2px;">
                   <%= link_to "ログイン", new_customer_session_path, class: 'nav-link', style: 'color: black;'%>
                 </li>

@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   end
     resources :orders, only: [:new, :create, :index, :show] do
     post 'confirm', on: :collection
-    get 'completion', on: :collection
+    get 'completation', on: :collection
   end
     resources :deliveries, only: [:index, :edit, :create, :update, :destroy]
   end
