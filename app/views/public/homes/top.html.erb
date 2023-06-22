@@ -1,21 +1,21 @@
-<div class="container">
-  <div class="row">
-    <!-- お店の紹介-->
-    <h3>ようこそ、ながのCAKEへ！</br>
-        このサイトは、ケーキ販売のECサイトになります。</br>
-        会員でない方も商品の閲覧はできますが、</br>
-        購入には会員登録が必要になります。
-    </h3>
+<div class="container py-5">
+  <div class="row mt-5 font-weight-bold">
+    <div class="mx-auto bg-light" style="text-align: center; font-size:30px;">
+      ようこそ、ながのCAKEへ！</br>
+      このサイトは、ケーキ販売のECサイトになります。</br>
+      会員でない方も商品の閲覧はできますが、</br>
+      購入には会員登録が必要になります。
+    </div>
   </div>
-  <!-- 新着商品の表示 -->
-  <div class="raw my-2">
-    <h3 class="font-weight-bold">新着商品</h3>
+
+  <div class="row my-5">
+    <h2 class="font-weight-bold">新着商品</h2>
   </div>
+  <div class="d-flex flex-wrap">
     <% @items.each do |item|%>
-    <div class="col-sm-">
-      <div>
+      <div class="card w-50 mx-auto mt-4 shadow-lg">
         <%= link_to item_path(item) do %>
-          <p class="img-wrap"><%= image_tag item.get_image(100,80), class: "m-3"%></p>
+          <%= image_tag item.get_image(100,80), class: "card-img-top"%></p>
         <% end %>
         <div class="card-body">
           <p style="font-size:20px;"><%= item.name %></p>
@@ -26,6 +26,12 @@
     <% end %>
 
   <div>
-    <%= link_to "全ての商品を見る >", items_path %>
+    <div class="m-4 text-right">
+      <%= link_to "全ての商品を見る >", items_path %>
+    </div>
+  </div>
+  <div>
+    <!-- ページネーション -->
   </div>
 </div>
+
