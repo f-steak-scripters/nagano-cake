@@ -7,7 +7,7 @@
       <div class="col">
         <h1 class="font-weight-bold pb-2"><%= @item.name %></h1>
         <h5 class="pb-5"><%= @item.description %></h5>
-        <h3 class="pb-3">¥<%= @item.price %>(税込)</h3>
+        <h3 class="pb-3">¥<%= @item.add_tax_price %>(税込)</h3>
       
         <% if @item.is_sales == true %>
           <%= form_with model: @cart_item, url: cart_items_path do |f| %>
