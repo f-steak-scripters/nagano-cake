@@ -1,4 +1,4 @@
-<dir class="container mx-auto col-8 " style="margin-top: 100px;">
+<div class="container mx-auto col-8 " style="margin-top: 100px; margin-bottom: 200px;">
   <p style="text-align: center;">
     <strong>本当に退会しますか？</strong>
   </p>
@@ -8,11 +8,11 @@
     これまでの購入履歴が閲覧できなくなります。</br>
     退会する場合は、「退会する」をクリックしてください。</br>
   </p>
-  <dir class="row justify-content-center p-0">
-    <dir class="p-0">
+  <div class="row justify-content-center p-0">
+    <div class="p-0">
       <%= link_to "退会しない", '/customer',class: "btn btn-primary",style: 'width: 200px; margin-right: 50px;' %>
       <%= link_to "退会する", '/customer/withdrawal',method: :patch, class: "btn btn-danger",style: 'width: 200px;' %>
-    </dir>
+    </div>
 
-  </dir>
-</dir>
+  </div>
+</div>
