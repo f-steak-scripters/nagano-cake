@@ -1,6 +1,6 @@
 <h4><span class="bg-light">注文情報入力</span></h4>
 
-<h6><span class="bg-light">支払い方法</span></h6>
+<h5><span class="bg-light">支払い方法</span></h5>
 
 <%= form_with(model: @order, url: confirm_orders_path,method: :post) do |f| %>
   <div class="radio-inline">
@@ -12,10 +12,12 @@
     <%= f.label :method_of_payment, "銀行振込" %>
   </div>
 
-<h6><span class="bg-light">お届け先</span></h6>
+<h5><span class="bg-light">お届け先</span></h5>
   <div class="radio-inline">
     <%= f.radio_button :address_type,1 %>
-    <%= f.label :address_type,"自身の住所" %>
+    <%= f.label :address_type,"自身の住所" %> </br>
+    <%= '〒' + @customer.post_code + ' ' + @customer.address + ' ' %> </br>
+    <%= @customer.last_name + @customer.first_name %>
   </div>
 
   <div class="radio-inline">

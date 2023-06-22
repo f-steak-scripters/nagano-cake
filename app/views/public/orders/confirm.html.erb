@@ -1,1 +1,50 @@
-orders#confirm
+<h4><span class="bg-light">注文確認</span></h4>
+
+<h5><span class="bg-light">注文内容</span></h5>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>商品名</th>
+      <th>価格</th>
+      <th>数量</th>
+      <th>小計</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @cart_items.each do |item| %>
+      <tr>
+        <td><%= item.item.name %></td>
+        <td><%= item.item.price %></td>
+        <td><%= item.quantity %></td>
+        <td><%= item.subtotal %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <tr>
+      <th colspan="3">合計</th>
+      <th><%= @order.total_price %></th>
+    </tr>
+  </tfoot>
+</table>
+
+<h5><span class="bg-light">支払い方法</span></h5>
+<p><strong>選択した支払い方法:</strong> <%= @order.method_of_payment_label %></p>
+
+<h5><span class="bg-light">お届け先</span></h5>
+<% if @order.address_type == 1 %>
+  <p><strong>お届け先:</strong> 自身の住所</p>
+  <p><%= '〒' + @customer.post_code + ' ' + @customer.address + ' ' + @customer.last_name + @customer.first_name %></p>
+<% elsif @order.address_type == 2 %>
+  <p><strong>お届け先:</strong> 登録済み住所</p>
+  <p><%= @order.delivery.full_deliveries %></p>
+<% elsif @order.address_type == 3 %>
+  <p><strong>お届け先:</strong> 新しい住所</p>
+  <p><%= '〒' + @order.post_code + ' ' + @order.address + ' ' + @order.name %></p>
+<% end %>
+
+<div class="form-group">
+  <%= link_to '戻る', cart_items_path, class: 'btn btn-secondary' %>
+  <%= link_to '注文確定', completion_orders_path, method: :post, class: 'btn btn-success' %>
+</div>
