@@ -8,22 +8,22 @@
     </div>
   </div>
 
-  <div class="raw my-5">
+  <div class="row my-5">
     <h3 class="font-weight-bold">新着商品</h3>
   </div>
-    <% @items.each do |item|%>
-    <div class="col-sm-">
-      <div>
+  <div class="row">
+  <% @items.each do |item|%>
+    <div class="col">
         <%= link_to item_path(item) do %>
-          <p class="img-wrap"><%= image_tag item.get_image(100,80), class: "m-3"%></p>
+          <p class="img-wrap"><%= image_tag item.image, width: 200, height: 140, class: "img-resize m-3" %></p>
         <% end %>
-        <div class="card-body">
-          <p style="font-size:20px;"><%= item.name %></p>
-          <p>¥<%= item.price %></p>
-        </div>
+      <div>
+        <p style="font-size:20px;"><%= item.name %></p>
+        <p>¥<%= item.price %></p>
       </div>
     </div>
-    <% end %>
+  <% end %>
+  </div>
 
   <div>
     <div class="m-4 text-right">
