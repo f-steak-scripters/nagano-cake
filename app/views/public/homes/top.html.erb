@@ -13,7 +13,7 @@
   </div>
   <div class="row">
   <% @items.each do |item|%>
-    <div class="col">
+    <div class="card col m-1">
         <%= link_to item_path(item) do %>
           <p class="img-wrap"><%= image_tag item.image, width: 200, height: 140, class: "img-resize m-3" %></p>
         <% end %>
