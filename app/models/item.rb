@@ -11,6 +11,7 @@ class Item < ApplicationRecord
 	validates :genre_id, presence: true
 	validates :price, presence: true
 	validates :price, numericality: { only_integer: true }
+	validates :image, presence: true
 
 
   def get_image(width, height)
