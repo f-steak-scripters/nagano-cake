@@ -4,11 +4,11 @@
 
 <%= form_with(model: @order, url: confirm_orders_path,method: :post) do |f| %>
   <div class="radio-inline">
-    <%= f.radio_button :method_of_payment, "card" %>
+    <%= f.radio_button :method_of_payment, Order.method_of_payments.key(0) %>
     <%= f.label :method_of_payment,"クレジットカード" %>
   </div>
   <div class="radio-inline">
-    <%= f.radio_button :method_of_payment, "bank" %>
+    <%= f.radio_button :method_of_payment, Order.method_of_payments.key(1) %>
     <%= f.label :method_of_payment, "銀行振込" %>
   </div>
 
