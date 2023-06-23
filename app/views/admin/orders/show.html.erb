@@ -1,1 +1,55 @@
-orders#show
+<div class="container p-5">
+
+  <p style="width: 130px; background-color:#DDDDDD;" class="text-center">注文履歴詳細</p>
+  <br>
+
+  <div class="row">
+
+    <div>
+      <table>
+        <tbody>
+          <tr>
+            <td>購入者</td>
+            <td>
+              <%= link_to admin_customer_path(@order.customer_id) do %>
+                <%= @order.name %>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <td>注文日</td>
+            <td>
+              <%= @order.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
+            </td>
+          </tr>
+          <tr>
+            <td>配送先</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>支払方法</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>注文ステータス</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  <div>
+    <table class="table table-bordered">
+      <thead class="thead-light">
+
+      </thead>
+
+      <tbody>
+
+      </tbody>
+
+    </table>
+  </div>
+
+
+</div>
