@@ -1,46 +1,59 @@
-<h4><span class="bg-light">注文情報入力</span></h4>
-
-<h5><span class="bg-light">支払い方法</span></h5>
+<div "container">
+    <div class='row mb-3'>
+        <div class='col-8 offset-5'>
+          <h3><span class="bg-light">注文情報入力</span></h3>
+        </div>
+        <div class='col-8 offset-1'>
+          <h5><span class="bg-light">支払い方法</span></h5>
+        </div>
+    </div>
 
 <%= form_with(model: @order, url: confirm_orders_path,method: :post) do |f| %>
-  <div class="radio-inline">
+  <div class="radio-inline col-8 offset-1">
     <%= f.radio_button :method_of_payment, Order.method_of_payments.key(0) %>
     <%= f.label :method_of_payment,"クレジットカード" %>
   </div>
-  <div class="radio-inline">
+  <div class="radio-inline col-8 offset-1">
     <%= f.radio_button :method_of_payment, Order.method_of_payments.key(1) %>
     <%= f.label :method_of_payment, "銀行振込" %>
   </div>
 
-<h5><span class="bg-light">お届け先</span></h5>
-  <div class="radio-inline">
+<div class='row mb-3'>
+  <div class='col-8 offset-1'>
+    <h5><span class="bg-light">お届け先</span></h5>
+  </div>
+</div>
+
+  <div class="radio-inline col-8 offset-1">
     <%= f.radio_button :address_type,1 %>
     <%= f.label :address_type,"自身の住所" %> </br>
+  <div class="radio-inline col-8 offset-1">  
     <%= '〒' + @customer.post_code + ' ' + @customer.address + ' ' %> </br>
     <%= @customer.last_name + @customer.first_name %>
   </div>
+  </div>
 
-  <div class="radio-inline">
+  <div class="radio-inline col-8 offset-1">
     <%= f.radio_button :address_type, 2 %>
     <%= f.label :address_type, "登録済み住所" %>
   </div>
 
   <div class="form-group row">
-    <div class="col-lg-4">
+    <div class="col-lg-4 offset-2">
       <%= f.label :address_type, "登録済み住所" %>
     </div>
-    <div class="col-lg-7">
+    <div class="col-lg-7 offset-3">
       <%= f.collection_select :customer_id, @deliveries, :id, :full_deliveries, {}, { class: "form-control form-control-col-lg-8" } %>
     </div>
   </div>
 
-  <div class="radio-inline">
+  <div class="radio-inline col-8 offset-1">
     <%= f.radio_button :address_type, 3 %>
     <%= f.label :address_type, "新しい住所" %>
   </div>
 
   <div class="form-group row">
-    <div class="col-lg-4">
+    <div class="col-lg-3 offset-2">
       <%= f.label :post_code, "郵便番号(ハイフンなし)" %>
     </div>
     <div class="col-lg-4">
@@ -49,16 +62,16 @@
   </div>
 
   <div class="form-group row">
-    <div class="col-lg-4">
+    <div class="col-lg-3 offset-2">
       <%= f.label :address, "住所" %>
     </div>
-    <div class="col-lg-8">
+    <div class="col-lg-7">
       <%= f.text_field :address, class: "form-control col-lg-8", placeholder: '東京都渋谷区神園町0-0' %>
     </div>
   </div>
 
   <div class="form-group row">
-    <div class="col-lg-4">
+    <div class="col-lg-3 offset-2">
       <%= f.label :name, "宛名" %>
     </div>
     <div class="col-lg-4">
@@ -67,7 +80,10 @@
   </div>
 
   <div class="form-group">
-  <%= f.submit '確認画面に進む', class: 'btn btn-success' %>
+    <div class='col-8 offset-5'>
+      <%= f.submit '確認画面に進む', class: 'btn btn-success' %>
+    </div>
   </div>
+</div>
 
 <% end %>
