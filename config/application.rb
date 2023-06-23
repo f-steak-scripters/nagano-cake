@@ -18,5 +18,12 @@ module NaganoCake
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    
+    # バリデーションエラーが発生した際labelがfield_with_errorsのdivタブで囲まれる事を防ぐ
+    config.action_view.field_error_proc = Proc.new do |html_tag, instance|
+      if instance.kind_of?(ActionView::Helpers::Tags::Label)
+        html_tag.html_safe
+      end
+    end
   end
 end
