@@ -1,1 +1,46 @@
-orders#index
+<div class="mb-6 text-center">
+  <span class="text-3xl font-bold">
+    注文履歴一覧
+  </span>
+</div>
+
+<table class="table">
+  <thead>
+  <th>注文日</th>
+  <th>配送先</th>
+  <th>注文商品</th>
+  <th>支払い金額</th>
+  <th>ステータス</th>
+  <th>注文詳細</th>
+  </thead>
+
+  <tbody>
+    <% @orders.each do |order| %>
+    <tr>
+      <td>
+        <%= order.created_at.strftime("%Y/%m/%d") %>
+      </td>
+      <td>
+        〒<%= order.post_code %> </br>
+        <%= order.address %> </br>
+        <%= order.name %>
+      </td>
+      <td>
+        <% order.order_details.each do |od| %>
+        <%= od.item.name %></br>
+        <% end %>
+      </td>
+      <td>
+        <%= number_to_currency(order.billing_amount, unit: "¥", strip_insignificant_zeros: true) %>
+      </td>
+      <td>
+        <%= order.status %>
+      </td>
+      <td>
+         <%= link_to "表示する", order_path(order), class: "btn btn-primary" %>
+      </td>
+    </tr>
+
+    <% end %>
+  </tbody>
+</table>

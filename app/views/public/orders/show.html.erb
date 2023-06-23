@@ -1,1 +1,89 @@
-orders#show
+<div class="mb-8 text-center">
+  <span class="text-3xl font-bold">
+    <h4>注文履歴詳細</h4>
+  </span>
+
+  <div class="row">
+    <div class="col-lg-8">
+      注文情報
+      <table class="table">
+        <tbody>
+      <tr>
+        <th>注文日</th>
+        <td><%= @order.created_at.strftime("%Y/%m/%d") %></td>
+      </tr>
+
+      <tr>
+        <th>配送先</th>
+        <td> 〒<%= @order.post_code %> </br>
+        <%= @order.address %> </br>
+        <%= @order.name %></td>
+      </tr>
+
+      <tr>
+         <th>支払い方法</th>
+         <td><%= @order.method_of_payment %></td>
+      </tr>
+
+      <tr>
+         <th>ステータス</th>
+         <td><%= @order.status %></td>
+      </tr>
+
+        </tbody>
+      </table>
+
+      注文内容
+      <table class="table table-bordered">
+        <tr>
+          <th class="table-light">商品名</th>
+          <th class="table-light">単価（税込）</th>
+          <th class="table-light">数量</th>
+          <th class="table-light">小計</th>
+        </tr>
+        <% @order.order_details.each do |od| %>
+          <tr>
+            <td>
+              <%= image_tag od.item.image, width: "50" %>
+              <%= od.item.name %>
+            </td>
+            <td><%= od.item.add_tax_price.to_s(:delimited) %></td>
+            <td>
+              <%= od.quantity %>
+            </td>
+            <td><%= od.subtotal.to_s(:delimited) %></td>
+          </tr>
+          <% end %>
+      </table>
+    </div>
+
+    <div class="col-lg-4">
+      請求情報
+      <table class="table">
+         <tbody>
+      <tr>
+        <th>商品合計</th>
+
+        <td><%=@order.billing_amount - @order.postage %></td>
+      </tr>
+
+      <tr>
+        <th>配送料</th>
+        <td>
+        <%= @order.postage %>
+        </td>
+      </tr>
+
+      <tr>
+         <th>ご請求額</th>
+         <td><%= @order.billing_amount %></td>
+      </tr>
+
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+
+
+
