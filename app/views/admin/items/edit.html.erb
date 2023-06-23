@@ -1,9 +1,7 @@
 <div class='container my-3'>
   <div class='row'>
-    <div class="col-10 mx-auto">
-      <div class="d-flex justify-content-between mb-3 align-items-center">
-        <h4 class="title bg-light">商品編集</h4>
-      </div>
+    <div>
+      <h4 class="title ml-5 bg-light">商品編集</h4>
     </div>
   </div>
   
@@ -52,8 +50,10 @@
             <%= f.radio_button :is_sales, false %> 販売停止中
           </div>
         </div>
-        <div class="row d-flex justify-content-center">
-          <%= f.submit "変更を保存", class: 'btn btn-success' %>
+        <div class="form-group row">
+          <div class="col-sm-9 offset-sm-3">
+            <%= f.submit "変更を保存", class: 'btn btn-success' %>
+          </div>
         </div>
       <% end %>
     </div>

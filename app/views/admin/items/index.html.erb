@@ -1,16 +1,14 @@
 <div class='container my-3'>
   <div class='row'>
-    <div class="col-10 mx-auto">
-      
-      <div class="d-flex justify-content-between mb-3 align-items-center">
-        <h4  class="title bg-light">商品一覧</h4>
-        <%= link_to new_admin_item_path do %>
-          <i class="fa-solid fa-plus fa-2xl rounded-circle p-2 shadow-sm"></i>
-        <% end %>
-      </div>
-      
+    <div>
+      <h4 class="title ml-5 bg-light">商品一覧</h4>
+    </div>
+  </div>
+  
+  <div class='row'>
+    <div class="col-8 mx-auto">
       <table class="table">
-        <thead class="table-light">
+        <thead>
           <tr>
             <th>商品ID</th>
             <th>商品名</th>
@@ -31,9 +29,6 @@
           <% end %>
         </tbody>
       </table>
-      <div class="d-flex justify-content-center">
-        <%= paginate @items %>
-      </div>
     </div>
   </div>
 </div>
