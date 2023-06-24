@@ -94,15 +94,15 @@
         <tbody>
           <tr>
             <td>商品合計</td>
-            <td><%= @order.billing_amount-@order.postage %></td>
+            <td><%= @order.billing_amount-@order.postage %>円</td>
           </tr>
           <tr>
             <td>送料</td>
-            <td><%= @order.postage %></td>
+            <td><%= @order.postage %>円</td>
           </tr>
           <tr>
             <td>請求金額合計</td>
-            <td><%= @order.billing_amount %></td>
+            <td><%= @order.billing_amount %>円</td>
           </tr>
         </tbody>
       </table>
