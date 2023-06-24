@@ -27,9 +27,9 @@ class Public::OrdersController < ApplicationController
         @order.name = ship.name
 
         elsif params[:order][:address_type] == "3"
-        @order.post_code = params[:order][:shipping_post_code]
-        @order.address = params[:order][:shipping_address]
-        @order.name = params[:order][:shipping_name]
+        @order.post_code = params[:order][:post_code]
+        @order.address = params[:order][:address]
+        @order.name = params[:order][:name]
         else
             render 'new'
         end

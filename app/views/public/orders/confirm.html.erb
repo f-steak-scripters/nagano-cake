@@ -49,7 +49,7 @@
             <table class="table table-borderless">
                 <tr><th class="col-1">支払い方法</th><td class="col-10"><%= @order.method_of_payment %></td></tr>
                 <tr><th class="col-1">お届け先</th><td class="col-10">
-                <%= @order.post_code %>
+                <%='〒' +  @order.post_code %>
                 <%= @order.address %>
                 <%= @order.name %>
                 </td></tr>
