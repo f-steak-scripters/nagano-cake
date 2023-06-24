@@ -89,6 +89,10 @@
             </a>
 
             <div>
+              <p>ようこそ、<%= current_customer.last_name %>さん！</p>
+            </div>
+
+            <div>
               <ul class="navbar-nav ml-auto">
                 <li class="nav-item ml-3" style="border-style:solid; border-width:2px;">
                   <%= link_to "マイページ", customer_path, class: 'nav-link', style: 'color: black;' %>
