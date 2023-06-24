@@ -36,7 +36,7 @@ class Public::CartItemsController < ApplicationController
     end
 
     if @cart_item.save
-      redirect_to item_path(@cart_item.item), notice: '商品をカートに追加しました。'
+      redirect_to cart_items_path(@cart_item.item), notice: '商品をカートに追加しました。'
     else
       @item = Item.find(@cart_item.item_id)
 
