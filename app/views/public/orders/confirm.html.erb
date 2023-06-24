@@ -19,13 +19,13 @@
               <tr>
                   <td><%= image_tag cart_item.item.get_image(20,20), size: "100x100" %>
                       <%= cart_item.item.name %></td>
-                  <td><%= (cart_item.item.price*1.08).to_i %></td>
-                  <td><%= cart_item.quantity %></td>
+                  <td><%= number_with_delimiter (cart_item.item.price*1.08).to_i %>円</td>
+                  <td><%= cart_item.quantity %>個</td>
                   <td>
                       <!--小計の計算-->
                       <% subtotal = ((cart_item.item.price*cart_item.quantity)*1.08).to_i %>
                       <!--小計を表示-->
-                      <%= subtotal %>
+                      <%= number_with_delimiter (subtotal) %>円
                   </td>
               </tr>
               <!--アイテムごとに合計金額に加算する-->
@@ -36,10 +36,10 @@
         <div class='col-3'>
             <table class="table table-bordered border-dark">
                 <% @order.postage = 800 %>
-                <tr><th class="table-secondary">送料</th><td><%= @order.postage %></td></tr>
-                <tr><th class="table-secondary">商品合計</th><td><%= total.to_i %></td></tr>
+                <tr><th class="table-secondary">送料</th><td><%= @order.postage %>円</td></tr>
+                <tr><th class="table-secondary">商品合計</th><td><%= number_with_delimiter total.to_i %>円</td></tr>
                 <% @order.billing_amount = @order.postage + total.to_i %>
-                <tr><th class="table-secondary">請求金額</th><td><%= @order.billing_amount %></td></tr>
+                <tr><th class="table-secondary">請求金額</th><td><%= number_with_delimiter @order.billing_amount %>円</td></tr>
             </table>
         </div>
     </div>
