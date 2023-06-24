@@ -25,9 +25,9 @@
 </div>
 
   <div class="radio-inline col-8 offset-1">
-    <%= f.radio_button :address_type,1 %>
+    <%= f.radio_button :address_type,1, checked: true  %>
     <%= f.label :address_type,"自身の住所" %> </br>
-  <div class="radio-inline col-8 offset-1">  
+  <div class="radio-inline col-8 offset-1">
     <%= '〒' + @customer.post_code + ' ' + @customer.address + ' ' %> </br>
     <%= @customer.last_name + @customer.first_name %>
   </div>

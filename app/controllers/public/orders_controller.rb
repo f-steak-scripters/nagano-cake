@@ -11,7 +11,7 @@ class Public::OrdersController < ApplicationController
     @subtotal = 0
     @cart_items = current_customer.cart_items.all
     @cart_items.each do |cart_item|
-      @subtotal += cart_item.subtotal
+    @subtotal += cart_item.subtotal
     end
     @total = @postage + @subtotal
 
@@ -26,7 +26,7 @@ class Public::OrdersController < ApplicationController
         @order.address = ship.address
         @order.name = ship.name
 
-        elsif params[:order][:address_type] = "3"
+        elsif params[:order][:address_type] == "3"
         @order.post_code = params[:order][:shipping_post_code]
         @order.address = params[:order][:shipping_address]
         @order.name = params[:order][:shipping_name]

@@ -1,4 +1,5 @@
 class Order < ApplicationRecord
+
   belongs_to :customer
   has_many :items, through: :cart_item
   has_many :order_details

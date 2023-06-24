@@ -17,7 +17,7 @@
             <% total = 0 %>
             <% @cart_items.each do |cart_item| %>
               <tr>
-                  <td><%= image_tag cart_item.item.get_image(20,20) %>
+                  <td><%= image_tag cart_item.item.get_image(20,20), size: "100x100" %>
                       <%= cart_item.item.name %></td>
                   <td><%= (cart_item.item.price*1.08).to_i %></td>
                   <td><%= cart_item.quantity %></td>
@@ -59,7 +59,7 @@
 
     <div class="row justify-content-center">
         <%= form_with model: @order, url: orders_path, method: :post, local: true do |f| %>
-            <%= f.hidden_field :member_id %>
+            <%= f.hidden_field :customer_id %>
             <%= f.hidden_field :postage %>
             <%= f.hidden_field :billing_amount,:value => @total %>
             <%= f.hidden_field :method_of_payment %>
