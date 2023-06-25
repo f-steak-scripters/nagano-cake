@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-sm-12 px-sm-0">
+      <h2 class="font-weight-bold">商品一覧(全<%= @items.count %>件)</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <% @items.each do |item|%>
+    <div class="card col-sm-auto m-1">
+      <%= link_to item_path(item) do %>
+        <p class="img-wrap"><%= image_tag item.image, width:200, heigth:140, class: "img-resize sized m-3"%></p>
+      <% end %>
+      <div>
+        <p><%= item.name %></p>
+        <p>¥<%= item.add_tax_price %></p>
+      </div>
+    </div>
+    <% end %>
+  </div>
+  <div class="d-flex justify-content-center text-center my-5 " style="font-size:20px;">
+    <%= paginate @items %>
+  </div>
+</div>

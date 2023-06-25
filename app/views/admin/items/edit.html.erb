@@ -1,0 +1,61 @@
+<div class='container my-3'>
+  <div class='row'>
+    <div class="col-10 mx-auto">
+      <div class="d-flex justify-content-between mb-3 align-items-center">
+        <h4 class="title bg-light">商品編集</h4>
+      </div>
+    </div>
+  </div>
+  
+  <div class='row'>
+    <div class="col-md-8 mx-auto">
+      <%= form_with model: [:admin, @item], local: true do |f| %>
+        <div class="form-group row">
+          <%= f.label :image, "商品画像", class: 'col-sm-3 col-form-label' %>
+          <div class="col-sm-9">
+            <%= f.file_field :image %>
+          </div>
+        </div>
+        
+        <div class="form-group row">
+          <%= f.label :name, "商品名", class: 'col-sm-3 col-form-label' %>
+          <div class="col-sm-9">
+            <%= f.text_field :name, placeholder: "商品名", class: 'form-control' %>
+          </div>
+        </div>
+      
+        <div class="form-group row">
+          <%= f.label :description, "商品説明", class: 'col-sm-3 col-form-label' %>
+          <div class="col-sm-9">
+            <%= f.text_area :description, placeholder: "ここに説明文を記述します", class: 'form-control' %>
+          </div>
+        </div>
+        
+        <div class="form-group row">
+          <%= f.label :genre_id, "ジャンル", class: 'col-sm-3 col-form-label' %>
+          <div class="col-sm-9">
+            <%= f.collection_select :genre_id, @genres, :id, :name,  { prompt: "-- 選択してください --" }, class: "genre_id form-control" %>
+          </div>
+        </div>
+      
+        <div class="form-group row">
+          <%= f.label :price, "税抜価格", class: 'col-sm-3 col-form-label' %>
+          <div class="col-sm-9">
+            <%= f.text_field :price, pattern: '^\d+$', placeholder: "1000", class: 'form-control' %>
+          </div>
+        </div>
+      
+        <div class="form-group row">
+          <%= f.label :is_sales, "販売ステータス", class: 'col-sm-3 col-form-label' %>
+          <div class="col-sm-9">
+            <%= f.radio_button :is_sales, true %> 販売中
+            <%= f.radio_button :is_sales, false %> 販売停止中
+          </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+          <%= f.submit "変更を保存", class: 'btn btn-success' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="container">
+
+  <span class="bg-light">ログイン</span><br />
+
+  <span class="bg-light">会員の方はこちらからログイン</span>
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="field row">
+      <div class="col-lg-4">
+        <%= f.label :メールアドレス %>
+      </div>
+      <div class="col-lg-8">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"col-lg-8", placeholder: "sample@example.com" %>
+      </div>
+    </div>
+
+    <div class="field row">
+      <div class="col-lg-4">
+        <%= f.label :パスワード %>
+      </div>
+      <div class="col-lg-8">
+        <%= f.password_field :password, autocomplete: "current-password",class:"col-lg-8" %>
+      </div>
+    </div>
+
+
+    <div class="form-field row">
+      <div class="col-lg-4">
+       </div>
+      <div class="actions col-lg-4">
+        <%= f.submit "ログイン", class: "btn btn-primary col-lg-7" %>
+      </div>
+    </div>
+  <% end %>
+
+  <%= render "public/shared/links" %>
+</div>

@@ -1,0 +1,37 @@
+<div class="container py-5">
+  <div class="row mt-5 font-weight-bold">
+    <div class="mx-auto bg-light" style="text-align: center; font-size:30px;">
+      ようこそ、ながのCAKEへ！</br>
+      このサイトは、ケーキ販売のECサイトになります。</br>
+      会員でない方も商品の閲覧はできますが、</br>
+      購入には会員登録が必要になります。
+    </div>
+  </div>
+
+  <div class="row my-5">
+    <h3 class="font-weight-bold">新着商品</h3>
+  </div>
+  <div class="row">
+  <% @items.each do |item|%>
+    <div class="card col m-1">
+        <%= link_to item_path(item) do %>
+          <p class="img-wrap"><%= image_tag item.image, width: 200, height: 140, class: "img-resize m-3" %></p>
+        <% end %>
+      <div>
+        <p style="font-size:20px;"><%= item.name %></p>
+        <p>¥<%= item.add_tax_price %></p>
+      </div>
+    </div>
+  <% end %>
+  </div>
+
+  <div>
+    <div class="m-4 text-right">
+      <%= link_to "全ての商品を見る >", items_path %>
+    </div>
+  </div>
+  <div>
+    <!-- ページネーション -->
+  </div>
+</div>
+

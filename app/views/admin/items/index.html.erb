@@ -1,0 +1,43 @@
+<div class='container my-3'>
+  <div class='row'>
+    <div class="col-10 mx-auto">
+
+      <div class="d-flex justify-content-between mb-3 align-items-center">
+        <h4  class="title bg-light">商品一覧</h4>
+        <%= link_to new_admin_item_path do %>
+          <span class="fa-stack">
+            <i class="fas fa-circle fa-stack-2x" style="color: #808080; position: absolute; left: 2px; top: 2px;"></i>
+            <i class="fas fa-circle fa-stack-2x" style="color: #ffffff;"></i>
+            <i class="far fa-plus fa-lg fa-stack-1x" style="color: #000000;"></i>
+          </span>
+        <% end %>
+      </div>
+
+      <table class="table">
+        <thead class="table-light">
+          <tr>
+            <th>商品ID</th>
+            <th>商品名</th>
+            <th>税抜価格</th>
+            <th>ジャンル</th>
+            <th>ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @items.each do |item| %>
+          <tr>
+            <td><%= item.id %></td>
+            <td><%= link_to item.name, admin_item_path(item) %></td>
+            <td><%= item.price %></td>
+            <td><%= item.genre.name %></td>
+            <td><%= item.is_sales ? "販売中" : "販売停止中" %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <div class="d-flex justify-content-center">
+        <%= paginate @items %>
+      </div>
+    </div>
+  </div>
+</div>
